@@ -1,0 +1,2 @@
+files: 
+dirs: .git, function, pytest, Кодировки, сериализация данных, json, модули и пакеты
