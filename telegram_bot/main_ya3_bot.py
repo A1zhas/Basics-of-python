@@ -4,7 +4,7 @@ import json
 import telebot
 
 # Твой Telegram-токен
-TOKEN = '7582009929:AAHeEm9N4HPJ2IkkKkW5NncZCpGpP8HjmPE'
+TOKEN = 'YOUR_TOKEN'
 
 bot = telebot.TeleBot(TOKEN)
 

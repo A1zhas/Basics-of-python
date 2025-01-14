@@ -2,7 +2,7 @@ import requests
 import pprint
 
 
-TOKEN = '7582009929:AAHeEm9N4HPJ2IkkKkW5NncZCpGpP8HjmPE'
+TOKEN = 'YOUR_TOKEN'
 
 MAIN_URL = f'https://api.telegram.org/bot{TOKEN}'
 
