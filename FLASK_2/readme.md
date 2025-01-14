@@ -12,3 +12,7 @@
 1. Установите зависимости:
    ```bash
    pip install Flask
+Запустите сервер:
+bash
+Копировать код
+python main.py
