@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Результаты поиска</title>
+</head>
+<body>
+    <h1>Результаты поиска</h1>
+    {% for result in results %}
+        <div>
+            <p><strong>{{ result.text }}</strong></p>
+            <p>Автор: {{ result.author }}</p>
+        </div>
+    {% endfor %}
+    <nav>
+        <a href="/">Главная</a> |
+        <a href="/contacts">Контакты</a>
+    </nav>
+</body>
+</html>
