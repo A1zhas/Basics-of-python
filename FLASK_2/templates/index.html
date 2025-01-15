@@ -2,14 +2,27 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 <body>
-    <h1>Добро пожаловать на главную страницу</h1>
-    <nav>
-        <a href="/">Главная</a> |
-        <a href="/contacts">Контакты</a> |
-        <a href="/form">Форма поиска</a>
-    </nav>
+    <header>
+        <h1>{{ title }}</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Главная</a>
+            <a href="{{ url_for('contacts') }}">Контакты</a>
+            <a href="{{ url_for('form') }}">Форма поиска</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Добро пожаловать на главную страницу!</h2>
+        <p>Здесь будет информация о сайте.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Ваш сайт</p>
+    </footer>
 </body>
 </html>

@@ -13,13 +13,26 @@
             <a href="/">Главная</a>
             <a href="/contacts">Контакты</a>
             <a href="/form">Форма поиска</a>
+            <a href="/add_contact">Добавить контакт</a> <!-- Добавлен новый пункт -->
         </nav>
     </header>
 
     <section>
         <h2>Контактная информация</h2>
-        <p>Email: {{ contacts.email }}</p>
-        <p>Телефон: {{ contacts.phone }}</p>
+        <table>
+            <tr>
+                <th>Имя</th>
+                <th>Email</th>
+                <th>Телефон</th>
+            </tr>
+            {% for contact in contacts %}
+                <tr>
+                    <td>{{ contact[1] }}</td>
+                    <td>{{ contact[2] }}</td>
+                    <td>{{ contact[3] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
     </section>
 
     <footer>
