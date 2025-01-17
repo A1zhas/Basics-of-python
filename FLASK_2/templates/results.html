@@ -21,7 +21,7 @@
         {% if results %}
         <ul>
             {% for result in results %}
-            <li><strong>{{ result.text }}</strong> - <em>{{ result.author }}</em></li>
+            <li><strong>{{ result[1] }}</strong> - <em>{{ result[2] }}</em> - <strong>{{ result[3] }}</strong></li>
             {% endfor %}
         </ul>
         {% else %}

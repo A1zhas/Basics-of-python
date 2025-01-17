@@ -71,13 +71,34 @@ def add_contact():
     return render_template('add_contact.html', title="Добавить контакт")
 
 # Страница с формой
+# Страница с формой поиска
 @app.route('/form', methods=['GET', 'POST'])
 def form():
     if request.method == 'POST':
         query = request.form['query']
-        # Заглушка: поиск цитат (можно подключить парсер)
-        results = [{"text": f"Результат для {query}", "author": "Автор"}]
-        return render_template('results.html', results=results)
+
+        # Путь до базы данных
+        db_path = os.path.join(os.path.dirname(__file__), 'database', 'contacts.db')
+
+        try:
+            # Подключение к базе данных
+            conn = sqlite3.connect(db_path)
+            cursor = conn.cursor()
+
+            # Поиск контактов, которые содержат запрос в имени, email или телефоне
+            cursor.execute("SELECT * FROM contacts WHERE name LIKE ? OR email LIKE ? OR phone LIKE ?", 
+                           ('%' + query + '%', '%' + query + '%', '%' + query + '%'))
+            results = cursor.fetchall()
+
+            # Закрытие соединения
+            conn.close()
+
+        except sqlite3.OperationalError as e:
+            return f"Ошибка при поиске: {e}"
+
+        # Передаем результаты поиска в шаблон
+        return render_template('results.html', title="Результаты поиска", results=results)
+    
     return render_template('form.html', title="Форма поиска")
 
 # Запуск приложения
