@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <h1>{{ title }}</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Главная</a>
+            <a href="{{ url_for('contacts') }}">Контакты</a>
+            <a href="{{ url_for('form') }}">Форма поиска</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Результаты поиска</h2>
+        {% if results %}
+        <ul>
+            {% for result in results %}
+            <li><strong>{{ result[1] }}</strong> - <em>{{ result[2] }}</em> - <strong>{{ result[3] }}</strong></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>Ничего не найдено.</p>
+        {% endif %}
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Ваш сайт</p>
+    </footer>
+</body>
+</html>
